@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
         res.end(" Welcome ");
     } else if (req.url === "/about") {
         res.writeHead(200, { "content-type": "text/html" });
-        res.end("<h1> About Page </h1>")
+        res.end(" About Page ")
     } else if (req.url === "/user") {
         const user = {
             name: "deepak",
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
         }));
     } else {
         res.writeHead(200, { "content-type": "text/html" });
-        res.end("<h1> Page not found </h1>")
+        res.end(" Page not found ")
     }
 
 });
