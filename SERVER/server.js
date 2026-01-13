@@ -93,19 +93,66 @@
 
 // //http module
 
-const http = require('http');
+// const http = require('http');
+
+// const server = http.createServer((req, res) => {
+//     // console.log(req);
+//     // res.end("hello world from hp");
+//     console.log(req.url);
+//     console.log(req.method);
+
+//     res.writeHead(200, { 'Content-Type': 'plain/text' });
+//     res.write("<h1>hello world</h1>");
+//     res.end();
+// })
+
+// server.listen(3000, () => {
+//     console.log("server is running on port 3000");
+// });
+
+
+// const http = require('http');
+
+// const server = http.createServer((req, res) => {
+
+//     if (req.url === "/json") {
+//         const user = {
+//             username: "deepak",
+//             email: "qwerty@gmail.com"
+//         };
+
+//         res.writeHead(200, { "content-type": "application/json" });
+//         res.end(JSON.stringify({
+//             success: true,
+//             user
+//         }));
+//     } else {
+//         res.writeHead(200, {
+//             "content-type": "text/html",
+//             "userinfo": "this is my user"
+//         });
+//         res.end("hello");
+//     }
+// });
+
+
+const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((req, res) => {
-    // console.log(req);
-    // res.end("hello world from hp");
-    console.log(req.url);
-    console.log(req.method);
+    fs.readFile("./public/index.html", "utf-8", (err, data) => {
+        if (err) {
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            return res.end("Server error");
+        }
 
-    res.writeHead(200, { 'Content-Type': 'plain/text' });
-    res.write("<h1>hello world</h1>");
-    res.end();
-})
+        res.writeHead(200, {
+            "Content-Type": "text/html"
+        });
+        res.end(data);
+    });
+});
 
 server.listen(3000, () => {
-    console.log("server is running on port 3000");
+    console.log("Server is running on port 3000");
 });
