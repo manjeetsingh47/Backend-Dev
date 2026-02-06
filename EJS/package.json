@@ -13,7 +13,9 @@
     },
     "dependencies": {
         "ejs": "^4.0.1",
-        "express": "^5.2.1"
+        "express": "^5.2.1",
+        "method": "^2.0.0",
+        "overview": "^0.0.1"
     },
     "devDependencies": {
         "nodeman": "^1.1.2"
