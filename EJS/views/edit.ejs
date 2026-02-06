@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Edit page</h1>
+
+    <form action="/api/user/<%= userData[0].id %>?_method=PUT" method="POST">
+        <input type="text" name="name" value="<%= userData[0].name %>  ">
+        <input type="text" name="age" value="<%= userData[0].age %> ">
+
+        <button type="submit">Update</button>
+        <br>
+        <a href="/user">back</a>
+    </form>
+
+</body>
+
+</html>

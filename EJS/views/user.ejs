@@ -4,26 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Page</title>
 </head>
 
 <body>
-    <h1>User Data</h1>
+
+    <h1>User Page</h1>
 
     <form action="http://localhost:3000/api/user" method="POST">
-        <input type="text" name="name" placeholder="Enter your name">
-        <input type="number" name="age" placeholder="Enter your age">
+        <input type="text" name="name" placeholder="Enter name" required>
+        <input type="number" name="age" placeholder="Enter age" required>
         <button type="submit">Submit</button>
     </form>
 
-    <!-- url encoded data -->
-    <% userData.forEach((ele)=>{ %>
-        <li>
-            <%= ele.name %>
-                <%= ele.age %>
-                    <button><a href="/api/user/<%= ele.id %>">delete</a></button>
-        </li>
-        <% }) %>
+    <hr>
+
+    <ul>
+        <% userData.forEach((ele) => { %>
+            <li>
+                <%= ele.name %> -
+                    <%= ele.age %>
+
+                        <form action="http://localhost:3000/api/user/<%= ele.id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+
+                        <a href="/editpage/<%= ele.id %>">Edit</a>
+            </li>
+            <% }) %>
+    </ul>
+
 </body>
 
 </html>
