@@ -1,0 +1,48 @@
+Q1.  db.products.find({price:{$gt:1000}})
+
+Q2. db.products.find({category: "Accessories",stock: { $gt: 50 }})
+
+Q3. db.products.find({ "specs.ram": 8 })
+
+Q4. db.products.find({ tags: "gaming" })
+
+Q5. db.products.find().sort({ price: -1 })
+
+Q6. db.products.find().sort({ price: 1 }).limit(5)
+
+Q7. db.products.countDocuments({ category: "Phones" })
+
+Q8. db.products.find({stock: { $gte: 20, $lte: 100 }})
+
+Q9. db.products.find({},{ name: 1, price: 1, _id: 0 })
+
+Q10. db.products.find({price:{$gt:500},category:"Laptops"})
+
+Q11. db.products.find({price: { $gte: 100, $lte: 500 }})
+
+Q12. db.products.find({category: { $ne: "Accessories" }})
+
+Q13. db.products.find({stock: { $lt: 20 }})
+
+Q14. db.products.find({tags: { $all: ["gaming", "office"] }})
+
+Q15. db.products.find({"specs.storage": { $gte: 512 }})
+
+Q16. db.products.aggregate([{ $group: { _id: null, totalStock: { $sum: "$stock" } } }])
+
+Q17. db.products.find().sort({ price: -1 }).limit(1)
+
+Q18.db.products.find({name: /Phone/})
+
+Q19. db.products.aggregate([{$group: {
+      _id: "$category",
+      count: { $sum: 1 },
+      avgPrice: { $avg: "$price" }
+    }
+  }
+])
+
+Q20. db.products.find({
+  stock: { $gt: 50 },
+  price: { $lt: 200 }
+})
