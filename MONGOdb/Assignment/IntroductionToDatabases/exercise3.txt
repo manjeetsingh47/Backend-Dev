@@ -1,0 +1,44 @@
+1.Adding New Books
+
+db.books.insertOne({
+  title: "Java Programming",
+  author: "James Gosling",
+  available: true
+})
+
+
+2. Finding Books by Author
+db.books.find({
+  author: "James Gosling"
+})
+
+
+3. Updating Book Availability
+
+Example: Book issued
+
+db.books.updateOne(
+  { title: "Java Programming" },
+  { $set: { available: false } }
+)
+
+
+4. Tracking Borrowed Books by User
+
+Create collection:
+
+borrowedBooks
+
+Insert record:
+
+db.borrowedBooks.insertOne({
+  userName: "Manjeet",
+  bookTitle: "Java Programming",
+  issueDate: new Date()
+})
+
+Find borrowed books by user:
+
+db.borrowedBooks.find({
+  userName: "Manjeet"
+})

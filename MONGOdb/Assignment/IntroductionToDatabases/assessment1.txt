@@ -1,0 +1,106 @@
+1.Key differences between SQL and NoSQL databases (with examples)
+
+SQL databases
+
+Store data in tables (rows and columns)
+Follow a fixed schema (structure must be defined before storing data)
+Support ACID properties (Atomicity, Consistency, Isolation, Durability)
+Best for structured data
+Support joins and relationships between tables
+Scale vertically (increase RAM/CPU of one machine)
+Examples:
+MySQL
+PostgreSQL
+Oracle
+
+NoSQL databases
+
+Store data as documents, key-value pairs, graphs, or column stores
+Use flexible schema (structure can change anytime)
+Designed for large-scale distributed systems
+Best for semi-structured or unstructured data
+Scale horizontally (add more machines)
+Faster for large real-time applications
+Examples:
+MongoDB
+Cassandra
+Redis
+
+
+2.What does the CAP theorem state and why all three properties cannot be guaranteed?
+
+CAP theorem states that a distributed system can provide only two out of three properties at the same time:
+
+Consistency
+
+Every user sees the same latest data at the same time
+
+Availability
+
+System always responds to user requests
+
+Partition tolerance
+
+System continues working even when network failures occur between servers
+
+Why all three cannot be guaranteed:
+
+In distributed systems, network failures (partitions) are unavoidable
+During partition failure, system must choose between:
+returning correct data (Consistency)
+returning response quickly (Availability)
+Therefore system supports either:
+CP (Consistency + Partition tolerance)
+AP (Availability + Partition tolerance)
+CA (Consistency + Availability)
+
+
+3.Three scenarios where MongoDB is preferred over relational databases
+
+Social media applications
+
+Store posts, comments, likes, and media
+Schema changes frequently
+Requires high scalability
+
+Real-time analytics systems
+
+Handle continuous incoming data
+Need fast read and write performance
+Flexible structure required
+
+IoT sensor data storage
+
+Sensors generate huge data continuously
+Data format may vary
+Requires horizontal scaling support
+
+
+4. Why MongoDB uses BSON instead of JSON internally
+
+MongoDB uses BSON (Binary JSON) instead of JSON because:
+
+BSON is faster to parse than JSON
+Supports additional data types like:
+Date
+Binary data
+ObjectId
+Decimal values
+Provides better indexing support
+Improves storage efficiency
+Enables faster data retrieval
+
+
+5. MongoDB query to find students with GPA above 3.5 and enrolled in “CS101”
+
+Example query:
+
+db.students.find({
+  GPA: { $gt: 3.5 },
+  course: "CS101"
+})
+
+This query returns:
+
+students whose GPA is greater than 3.5
+and who are enrolled in course CS101

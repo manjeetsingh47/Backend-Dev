@@ -1,0 +1,40 @@
+Exercise 2: CAP Theorem Analysis
+
+CAP Theorem = Consistency + Availability + Partition Tolerance
+
+Only 2 out of 3 possible.
+
+1.Stock Trading Platform → Consistency + Partition Tolerance (CP)
+
+Reason:
+
+Price accuracy critical
+Cannot allow incorrect transactions
+
+
+2. Content Delivery Network (CDN) → Availability + Partition Tolerance (AP)
+
+Reason:
+
+Users must always access content
+Slight delay in updates acceptable
+
+Example: Netflix CDN
+
+
+3. Airline Booking System → Consistency + Availability (CA)
+
+Reason:
+
+Cannot allow double booking
+Needs accurate seat availability
+
+
+4. Video Streaming Service → Availability + Partition Tolerance (AP)
+
+Reason:
+
+Service should always run
+Minor buffering acceptable
+
+Example: YouTube
